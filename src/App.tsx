@@ -1,30 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import "/__/firebase/7.19.0/firebase-app.js";
-import "/__/firebase/7.19.0/firebase-analytics.js";
-import "/__/firebase/init.js";
 import "react-bootstrap";
-import "./navBar/NavBar"
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import 'fontsource-roboto';
+import SimpleBottomNavigation from './Components/bottomnavigationbar';
+import palette from '@material-ui/system';
+import Home from './Components/home'
+import Box from '@material-ui/core/Box'
+import { ThemeProvider } from 'styled-components'
+import {CenteredTabs,TabPanel} from './Components/Tabs'
+import SwipeableViews from 'react-swipeable-views';
+
+const theme = {
+  spacing: 4,
+  palette: {
+    primary: '#007bff',
+  },
+};
+
+
+
+
+export default class App extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <CenteredTabs />
+        <TabPanel>
+          Hello
+        </TabPanel>
+        <TabPanel>
+         to
+        </TabPanel>
+        <TabPanel>
+          you
+        </TabPanel>
+
+        
+      </div>
+    )
+  };
 }
 
-export default App;
+
+
