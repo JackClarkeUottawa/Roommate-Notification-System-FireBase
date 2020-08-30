@@ -1,5 +1,8 @@
 import * as functions from 'firebase-functions';
-import twilio from 'twilio'
+import twilio from 'twilio';
+import * as config from '../privateKeys/config.json';
+
+
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
@@ -11,54 +14,55 @@ import twilio from 'twilio'
 //eventually this will be stored in some kind of database
 // stores information about a specific chore,
 
-const test = require('firebase-functions-test')({
-    databaseURL: 'https://my-project.firebaseio.com',
-    storageBucket: 'my-project.appspot.com',
-    projectId: 'my-project',
-  }, 'path/to/serviceAccountKey.json');
-  
 
-interface chore{
+interface Chore {
     name: string,
     time: Date,
-}
+    frequency: number //Frequency in days
+  }
 // stores user info, including chores
-interface roommate{
+interface Roommate {
     name: string,
-    chores: chore[]
+    chores: Chore[]
     phoneNumber: string
-    
+
 }
+
+
+//might get stored in database
+let roommates: Roommate[];
+
 //helper functions
 
 
-var roommates:roommate[];
 
 
 //twilio setup 
-const TWILIO_ACCOUNT_SID = '1234a'
-const TWILIO_AUTH_TOKEN = '1234a'
-const TWILIO_NUMBER = '1234567891'
+const TWILIO_ACCOUNT_SID = config.TWILIO_ACCOUNT_SID
+const TWILIO_AUTH_TOKEN = config.TWILIO_AUTH_TOKEN
+const TWILIO_NUMBER = config.TWILIO_NUMBER
 
-var twclient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+let twclient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
-function sendMessage(message: string, phoneNumber: string) {
-    twclient.messages.create({
+async function sendMessage(message: string, phoneNumber: string) {
+
+    let promiseThing = twclient.messages.create({
         to: phoneNumber,
         from: TWILIO_NUMBER,
         body: message
     })
+    return promiseThing;
 }
 
 
 // roommate control
-exports.addRoommate = functions.https.onCall((data:roommate,context) =>{
+exports.addRoommate = functions.https.onCall((data: Roommate) => {
     roommates.push(data)
 })
 
 exports.removeRoommate = functions.https.onCall((data: string) => {
-    var deadroomy: number = roommates.findIndex((temp_roomy) => temp_roomy.name == data)
-    roommates.splice(deadroomy,1)
+    const deadroomy: number = roommates.findIndex((temp_roomy) => temp_roomy.name === data)
+    roommates.splice(deadroomy, 1)
 })
 
 

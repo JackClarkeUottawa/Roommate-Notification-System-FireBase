@@ -26,17 +26,6 @@ export default class App extends React.Component {
     return (
       <div>
         <CenteredTabs />
-        <TabPanel>
-          Hello
-        </TabPanel>
-        <TabPanel>
-         to
-        </TabPanel>
-        <TabPanel>
-          you
-        </TabPanel>
-
-        
       </div>
     )
   };
