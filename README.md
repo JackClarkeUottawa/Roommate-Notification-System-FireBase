@@ -7,4 +7,4 @@ The idea behind this app is to easily set a schedule and notify roommates when i
 A stretch goal is to have this app also receive confirmation through a similar mobile app. So everyone will see who did what in a decentralized way. 
 
 ## Deployment 
-The app is available at https://roommatechoretracker.firebaseapp.com/
+The app(WIP) is available at https://roommatechoretracker.firebaseapp.com/
