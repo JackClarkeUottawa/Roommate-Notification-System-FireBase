@@ -60,9 +60,10 @@ export function CenteredTabs(props: any) {
         textColor="primary"
         centered
       >
-        <Tab label="Item One" icon={<HomeIcon />}> </Tab>
+        <Tab label="Item One" icon={<HomeIcon />}></Tab>
         <Tab label="Item Two" icon={<CalendarTodayIcon />} />
-        <Tab label="Item Three" icon={<SettingsIcon />} />
+          <Tab label="Item Three" icon={<SettingsIcon />} />
+          
       </Tabs>
       </Paper>
       <TabPanel value={value} index={0}>
