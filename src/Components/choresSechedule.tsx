@@ -1,2 +1,2 @@
 // editing chore cycle
-export {}
+export {};

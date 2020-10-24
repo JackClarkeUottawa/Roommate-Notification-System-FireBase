@@ -1,10 +1,10 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import SettingsIcon from '@material-ui/icons/Settings';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import HomeIcon from '@material-ui/icons/Home';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import SettingsIcon from "@material-ui/icons/Settings";
+import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import HomeIcon from "@material-ui/icons/Home";
 
 const useStyles = makeStyles({
   root: {
@@ -25,9 +25,21 @@ export default function SimpleBottomNavigation() {
       showLabels
       className={classes.root}
     >
-        <BottomNavigationAction label="Home Page" value="nearby" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Calendar" value="favorites" icon={<CalendarTodayIcon />} />
-        <BottomNavigationAction label="Settings" value="recents" icon={<SettingsIcon />} />
+      <BottomNavigationAction
+        label="Home Page"
+        value="nearby"
+        icon={<HomeIcon />}
+      />
+      <BottomNavigationAction
+        label="Calendar"
+        value="favorites"
+        icon={<CalendarTodayIcon />}
+      />
+      <BottomNavigationAction
+        label="Settings"
+        value="recents"
+        icon={<SettingsIcon />}
+      />
     </BottomNavigation>
   );
 }

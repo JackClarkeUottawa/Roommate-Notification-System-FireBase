@@ -17,7 +17,7 @@ import firebase from "firebase";
 import Chore from "../func/interfaces/Chore";
 import Roommate from "../func/interfaces/Roommate";
 import { SettingsSystemDaydreamTwoTone } from "@material-ui/icons";
-import {getHouseHoldID} from "../func/HouseHold"
+import { getHouseHoldID } from "../func/HouseHold";
 
 interface SettingsState {
   addRoommate: Roommate;

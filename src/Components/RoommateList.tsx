@@ -1,10 +1,7 @@
 //returns a list of roommates
 import React from "react";
-import {
-  getRoommates,
-  getDayOfTheWeekString,
-} from "../func/Roommate";
-import Roommate from '../func/interfaces/Roommate';
+import { getRoommates, getDayOfTheWeekString } from "../func/Roommate";
+import Roommate from "../func/interfaces/Roommate";
 import Paper from "@material-ui/core/Paper";
 import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -35,11 +32,9 @@ function RoommateCard(props: RoommateCardProps) {
           <p>
             {roommate.chores.map((chore, index) => (
               <p>
-                {chore.name}{" "}
-                { "Day:"}
+                {chore.name} {"Day:"}
                 {getDayOfTheWeekString(chore.dateTime.dayOfTheWeek)}{" "}
                 {chore.dateTime.Hour}{" "}
-                
               </p>
             ))}
           </p>
