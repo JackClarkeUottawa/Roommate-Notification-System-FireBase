@@ -6,7 +6,7 @@ import "fontsource-roboto";
 import { CenteredTabs, TabPanel } from "./Components/Tabs";
 import SignInScreen from "./Components/LoginPage";
 import firebase from "firebase";
-import Footer from './Components/Footer'
+import Footer from "./Components/Footer";
 
 const theme = {
   spacing: 4,
@@ -36,8 +36,6 @@ export default class App extends React.Component {
   constructor(props: any) {
     super(props);
     this.loggedIn = false;
-
-
   }
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
@@ -52,8 +50,6 @@ export default class App extends React.Component {
         {!this.state.loggedIn && <SignInScreen />}
         <Footer />
       </div>
-      
-      
     );
   }
 }
